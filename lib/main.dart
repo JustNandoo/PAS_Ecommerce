@@ -1,5 +1,9 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_ecommerce/pages/login_page/login.dart';
+import 'package:flutter_ecommerce/pages/register_page/signup.dart';
+
 import 'package:flutter_ecommerce/Pages/Navigation.dart';
 import 'package:flutter_ecommerce/Pages/bag_page/BagPage.dart';
 import 'package:flutter_ecommerce/Pages/profile_page/ProfilePage.dart';
@@ -13,6 +17,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,6 +28,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 253, 0, 0)),
+          useMaterial3: true,
+        ),
+        home: SignUpPage());
+  }
+}
+=======
     final size = MediaQuery.of(context).size;
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
@@ -47,9 +63,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/bag', page: () => BagPage()),
         GetPage(name: '/profile', page: () => ProfilePage()),
         GetPage(name: '/navigation', page: () => Navigator()),
+        GetPage(name: '/login', page: () => LoginPage()),
+        GetPage(name: '/register', page: () => SignUpPage()),
       ],
     );
   }
 }
-
 
