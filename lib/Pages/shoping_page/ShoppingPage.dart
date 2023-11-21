@@ -16,16 +16,29 @@
               height: double.infinity,
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(horizontal: 15),
-              child: Center( // Wrap the Row in a Center widget
-                child: Row(
+              child: Center( // Wrap the Row in a Center wid// get
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "Category",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    ),
-                    Icon(Icons.search),
+                    TextField(
+                      style: TextStyle(fontSize: 15),
+                      decoration: InputDecoration(
+                        hintText: 'Mau Belajar apa hari ini ?',
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                        filled: true,
+                        fillColor: Colors.grey[200], // Adjust the color as needed
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          size: 20,
+                          color: Colors.grey[600], // Adjust the color as needed
+                        ),
+                      ),
+                    ), // Icon(Icons
                   ],
                 ),
               ),
@@ -38,31 +51,30 @@
               ],
             ),
           ),
-          body: Container(
-            child: TabBarView(
-              children: [
-      Align(
-        alignment: Alignment.topCenter,
-        child: SingleChildScrollView(
+          body:
+          TabBarView(
+            children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: SingleChildScrollView(
+                    child: Column(
+          children: [
+            mycont(),
+            Categori()
+          ],
+                    ),
+                  ),
+                ),
+              // Widget untuk konten Tab 2
+                    SingleChildScrollView(
           child: Column(
             children: [
               mycont(),
               Categori()
             ],
           ),
-        ),
-      ),
-                // Widget untuk konten Tab 2
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                mycont(),
-                Categori()
-              ],
-            ),
-          )
-              ],
-            ),
+                    )
+            ],
           ),
       ));
     }

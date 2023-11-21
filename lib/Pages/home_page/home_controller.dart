@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 class HomeController extends GetxController{
   RxList<PruductResponseModel> productRespone = <PruductResponseModel>[].obs;
   RxList<PruductResponseModel> productResponeAll = <PruductResponseModel>[].obs;
-
   @override
   void onInit(){
     super.onInit();
