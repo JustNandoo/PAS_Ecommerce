@@ -28,45 +28,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme:
               ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 253, 0, 0)),
           useMaterial3: true,
         ),
-        home: SignUpPage());
-  }
-}
-=======
-    final size = MediaQuery.of(context).size;
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home:
-      AnimatedSplashScreen(
-        splashIconSize: 150,
-        splash: Image.asset('img/singen.png'),
-        duration: 3000,
-        splashTransition:SplashTransition.fadeTransition ,
-        backgroundColor: ColorValue.orange,
-        nextScreen: Navigation(),
-      ),
-      getPages: [
-        GetPage(name: '/home', page: () => HomePage()),
-        GetPage(name: '/shop', page: () => ShoppingPage()),
-        GetPage(name: '/bag', page: () => BagPage()),
-        GetPage(name: '/profile', page: () => ProfilePage()),
-        GetPage(name: '/navigation', page: () => Navigator()),
-        GetPage(name: '/login', page: () => LoginPage()),
-        GetPage(name: '/register', page: () => SignUpPage()),
-      ],
-    );
-  }
+        home: AnimatedSplashScreen(
+    splashIconSize: 150,
+    splash: Image.asset('img/singen.png'),
+    duration: 3000,
+    splashTransition:SplashTransition.fadeTransition ,
+    backgroundColor: ColorValue.orange,
+    nextScreen: Navigation(),
+    ),
+    getPages: [
+    GetPage(name: '/home', page: () => HomePage()),
+    GetPage(name: '/shop', page: () => ShoppingPage()),
+    GetPage(name: '/bag', page: () => BagPage()),
+    GetPage(name: '/profile', page: () => ProfilePage()),
+    GetPage(name: '/navigation', page: () => Navigator()),
+    GetPage(name: '/login', page: () => LoginPage()),
+    GetPage(name: '/register', page: () => SignUpPage()),
+    ],
+    );}
 }
 

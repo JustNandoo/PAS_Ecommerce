@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/Pages/Navigation.dart';
 import 'package:flutter_ecommerce/Pages/home_page/home_controller.dart';
 import 'package:flutter_ecommerce/component/Product.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../asset/color.dart';
 import '../../component/MenProduct.dart';
 import '../../component/myButton.dart';
 
 class HomePage extends StatelessWidget {
-  final HomeController homeController = Get.put(HomeController());
 
   HomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeController = Get.put(HomeController());
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: ListView(
+      body: Obx(() => ListView(
         children: [
           Container(
             height: 500,
@@ -128,7 +130,9 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 20,),
           homeAllList(homeController.productResponeAll)
         ],
-      ),
+      ),)
     );
   }
 }
+
+

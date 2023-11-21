@@ -45,6 +45,7 @@ dependencies:
   animated_splash_screen:
   shared_preferences:
   fluttertoast:
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

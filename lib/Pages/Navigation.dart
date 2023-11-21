@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/Pages/bag_page/BagPage.dart';
 import 'package:flutter_ecommerce/Pages/home_page/HomePage.dart';
+import 'package:flutter_ecommerce/Pages/login_page/login.dart';
 import 'package:flutter_ecommerce/Pages/profile_page/ProfilePage.dart';
+import 'package:flutter_ecommerce/Pages/register_page/signup.dart';
 import 'package:flutter_ecommerce/Pages/shoping_page/ShoppingPage.dart';
 import 'package:flutter_ecommerce/asset/color.dart';
 import 'package:flutter_ecommerce/controller/NavigationController.dart';
@@ -86,6 +88,8 @@ class Navigation extends StatelessWidget {
           body: Obx(() => IndexedStack(
             index: landingPageController.tabIndex.value,
             children: [
+              // LoginPage(),
+              // SignUpPage(),
               HomePage(),
               ShoppingPage(),
               BagPage(),

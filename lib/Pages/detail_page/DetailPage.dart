@@ -21,9 +21,9 @@ class DetailPage extends StatelessWidget {
               height: 450,
               width: double.infinity,
            foregroundDecoration: BoxDecoration(
-             image: DecorationImage(image: NetworkImage(item.image))
+             image: DecorationImage(image: NetworkImage(item.image)),
            ),
-            ),
+            ),SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
