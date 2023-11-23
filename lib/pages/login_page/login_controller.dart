@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends GetxController {
-  late final SharedPreferences prefs;
+   late final SharedPreferences prefs;
   RxBool isLoading = false.obs;
   RxString message = "".obs;
 
@@ -46,6 +46,7 @@ class LoginController extends GetxController {
         if (responseData.status) {
           await prefs.setBool("isLogin", true);
           await prefs.setString("userToken", responseData.token);
+          await prefs.setString("username", username);
 
           Get.offAllNamed(RouteName.home);
         }
@@ -61,3 +62,6 @@ class LoginController extends GetxController {
     prefs = await SharedPreferences.getInstance();
   }
 }
+
+
+

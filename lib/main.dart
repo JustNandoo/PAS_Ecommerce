@@ -1,5 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/common/routes/route_name.dart';
+import 'package:flutter_ecommerce/common/routes/routes.dart';
 
 import 'package:flutter_ecommerce/pages/login_page/login.dart';
 import 'package:flutter_ecommerce/pages/register_page/signup.dart';
@@ -17,7 +19,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -29,29 +30,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 253, 0, 0)),
-          useMaterial3: true,
-        ),
-        home: AnimatedSplashScreen(
-    splashIconSize: 150,
-    splash: Image.asset('img/singen.png'),
-    duration: 3000,
-    splashTransition:SplashTransition.fadeTransition ,
-    backgroundColor: ColorValue.orange,
-    nextScreen: Navigation(),
-    ),
-    getPages: [
-    GetPage(name: '/home', page: () => HomePage()),
-    GetPage(name: '/shop', page: () => ShoppingPage()),
-    GetPage(name: '/bag', page: () => BagPage()),
-    GetPage(name: '/profile', page: () => ProfilePage()),
-    GetPage(name: '/navigation', page: () => Navigator()),
-    GetPage(name: '/login', page: () => LoginPage()),
-    GetPage(name: '/register', page: () => SignUpPage()),
-    ],
-    );}
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 253, 0, 0)),
+        useMaterial3: true,
+      ),
+      initialRoute: RouteName.splash,
+      getPages: pageRoutes,
+    );
+  }
 }
-

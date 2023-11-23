@@ -18,7 +18,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -27,47 +27,38 @@ class SignUpPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 30),
                   const Text(
                     'Sign Up',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 64,
-                        fontWeight: FontWeight.bold),
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 20),
                   MyTextField(
                     controller: ctrUsername,
                     hintText: 'Username',
                     obscureText: false,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 15),
                   MyTextField(
                     controller: ctrEmail,
                     hintText: 'Email',
                     obscureText: false,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 15),
                   MyTextField(
                     controller: ctrPassword,
                     hintText: 'Password',
                     obscureText: false,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 15),
                   MyTextField(
                     controller: ctrConfirmPass,
                     hintText: 'Confirm Password',
                     obscureText: false,
-                  ),
-                  SizedBox(height: 25),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Forgot your Password?',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
                   ),
                   SizedBox(height: 20),
                   MyButton(
@@ -78,49 +69,26 @@ class SignUpPage extends StatelessWidget {
                       ctrConfirmPass.text,
                     ),
                   ),
-                  SizedBox(height: 50),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            thickness: 0.5,
-                            color: Colors.grey[400],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text(
-                            'Or continue with',
-                            style: TextStyle(color: Colors.grey[700]),
-                          ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            thickness: 0.5,
-                            color: Colors.grey[400],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 50),
-                  const Row(
+                  SizedBox(height: 30),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 10.0),
-                        child: SquareTile(imagePath: 'lib/images/google.png'),
-                      ),
-                      SizedBox(width: 25),
-                      Padding(
-                        padding: EdgeInsets.only(left: 10.0),
-                        child: SquareTile(imagePath: 'lib/images/facebook.png'),
+                      Text(
+                        'Or continue with',
+                        style: TextStyle(color: Colors.grey[700]),
                       ),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SquareTile(imagePath: 'lib/images/google.png'),
+                      SizedBox(width: 25),
+                      SquareTile(imagePath: 'lib/images/facebook.png'),
+                    ],
+                  ),
+                  SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

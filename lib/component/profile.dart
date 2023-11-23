@@ -3,7 +3,12 @@ import 'package:flutter_ecommerce/asset/color.dart';
 import 'package:flutter_ecommerce/component/myButton.dart';
 
 class profiles extends StatelessWidget {
-  const profiles({super.key});
+  final String username;
+
+  const profiles({
+    super.key,
+    required this.username
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,42 +20,39 @@ class profiles extends StatelessWidget {
       child: ListView(
         children: [
           ListTile(
-            title: myText("JusNando",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)),
-            subtitle: myText("JusNando@gmail.com",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: ColorValue.grey)),
+            title: myText(username,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
+            subtitle: myText("JusNando@gmail.com",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: ColorValue.grey)),
             leading: CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage("img/fut.jpg"),
             ),
-          ) ,
-          SizedBox(height: 35,),
-          ListTile(
-            title: myText("My orders",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)),
-            subtitle: myText("Already have 12 orders",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: ColorValue.grey)),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){print('ontap');},
-          ) ,
-          Expanded(
-            child: Divider(
-              thickness: 0.5,
-            ),
+          ),
+          SizedBox(
+            height: 35,
           ),
           ListTile(
-            title: myText("Shipping address",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)),
-            subtitle: myText("3 dresses",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: ColorValue.grey)),
+            title: myText("My orders",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
+            subtitle: myText("Already have 12 orders",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: ColorValue.grey)),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){print('ontap');},
-
-          ),
-          Expanded(
-            child: Divider(
-              thickness: 0.5,
-            ),
-          ),
-          ListTile(
-            title: myText("Payment methods",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)),
-            subtitle: myText("Visa **45",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: ColorValue.grey)),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){print('ontap');},
+            onTap: () {
+              print('ontap');
+            },
           ),
           Expanded(
             child: Divider(
@@ -58,10 +60,20 @@ class profiles extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: myText("My Reviews" ,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)),
-            subtitle: myText("Review for 4 items",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: ColorValue.grey)),
+            title: myText("Shipping address",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
+            subtitle: myText("3 dresses",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: ColorValue.grey)),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){print('ontap');},
+            onTap: () {
+              print('ontap');
+            },
           ),
           Expanded(
             child: Divider(
@@ -69,11 +81,62 @@ class profiles extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: myText("Settings" ,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black)),
-            subtitle: myText("Notification, password",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: ColorValue.grey)),
+            title: myText("Payment methods",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
+            subtitle: myText("Visa **45",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: ColorValue.grey)),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: (){print('ontap');},
-
+            onTap: () {
+              print('ontap');
+            },
+          ),
+          Expanded(
+            child: Divider(
+              thickness: 0.5,
+            ),
+          ),
+          ListTile(
+            title: myText("My Reviews",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
+            subtitle: myText("Review for 4 items",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: ColorValue.grey)),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              print('ontap');
+            },
+          ),
+          Expanded(
+            child: Divider(
+              thickness: 0.5,
+            ),
+          ),
+          ListTile(
+            title: myText("Settings",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black)),
+            subtitle: myText("Notification, password",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: ColorValue.grey)),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              print('ontap');
+            },
           ),
         ],
       ),
