@@ -49,7 +49,7 @@ class BagItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
                 image: NetworkImage(item.image),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
           ),

@@ -16,54 +16,54 @@ class BagPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 190,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                myText("My Bag",
-                    style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black)),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  height: size.height * 0.9,
-                  width: size.width * 1.1,
-                  // color: Colors.red,
-
-                  child: Obx(
-                    () => controller.isRefresh == true
-                        ? ListView.builder(
-                            itemCount: controller.responeBag.length,
-                            shrinkWrap: true,
-                            itemBuilder: (BuildContext context, int index) {
-                              return BagItem(
-                                  item: controller.responeBag[index]);
-                            },
-                          )
-                        : ListView.builder(
-                            itemCount: controller.responeBag.length,
-                            shrinkWrap: true,
-                            itemBuilder: (BuildContext context, int index) {
-                              return BagItem(
-                                  item: controller.responeBag[index]);
-                            },
-                          ),
-                  ),
-                )
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 50,
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  myText("My Bag",
+                      style: TextStyle(
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black)),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: size.height * 0.9,
+                    width: size.width * 1.1,
+                    child: Obx(
+                      () => controller.isRefresh == true
+                          ? ListView.builder(
+                              itemCount: controller.responeBag.length,
+                              shrinkWrap: true,
+                              itemBuilder: (BuildContext context, int index) {
+                                return BagItem(
+                                    item: controller.responeBag[index]);
+                              },
+                            )
+                          : ListView.builder(
+                              itemCount: controller.responeBag.length,
+                              shrinkWrap: true,
+                              itemBuilder: (BuildContext context, int index) {
+                                return BagItem(
+                                    item: controller.responeBag[index]);
+                              },
+                            ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: bottomNavbar(context, currentIndex),
     );
