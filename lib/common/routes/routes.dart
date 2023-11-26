@@ -1,8 +1,9 @@
+import 'package:flutter_ecommerce/Pages/home_page/HomePage.dart';
+import 'package:flutter_ecommerce/Pages/home_page/home_binding.dart';
 import 'package:flutter_ecommerce/common/routes/route_name.dart';
 
 import 'package:flutter_ecommerce/pages/bag_page/BagPage.dart';
 import 'package:flutter_ecommerce/pages/bag_page/bag_binding.dart';
-import 'package:flutter_ecommerce/pages/home_page/home_binding.dart';
 import 'package:flutter_ecommerce/pages/login_page/login.dart';
 import 'package:flutter_ecommerce/pages/profile_page/ProfilePage.dart';
 import 'package:flutter_ecommerce/pages/profile_page/profile_binding.dart';
@@ -40,5 +41,11 @@ List<GetPage> pageRoutes = [
     page: () => SplashScreen(), 
     binding: SplashBinding()
     ),
+
+  GetPage(
+      name: RouteName.home,
+      page: () => HomePage(),
+      binding: HomeBinding()
+  ),
  
 ];

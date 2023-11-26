@@ -5,6 +5,4 @@ abstract class RouteName {
   static const bag = "/bag";
   static const profile = "/profile";
   static const splash = "/splash";
- 
-  
 }

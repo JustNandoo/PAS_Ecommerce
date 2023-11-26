@@ -3,18 +3,17 @@ import 'package:flutter_ecommerce/Pages/Navigation.dart';
 import 'package:flutter_ecommerce/Pages/home_page/home_controller.dart';
 import 'package:flutter_ecommerce/component/Product.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../asset/color.dart';
 import '../../component/MenProduct.dart';
 import '../../component/myButton.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key});
   final int currentIndex = 0;
+  HomePage({Key? key});
+  final HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
-    final HomeController homeController = Get.put(HomeController());
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Obx(

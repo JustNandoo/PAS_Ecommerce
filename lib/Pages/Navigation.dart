@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/Pages/home_page/HomePage.dart';
+import 'package:flutter_ecommerce/Pages/shoping_page/ShoppingPage.dart';
+import 'package:flutter_ecommerce/common/routes/route_name.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -9,7 +12,7 @@ Widget bottomNavbar(BuildContext context, int currentIndex) {
         horizontal: size.width * 0.05, vertical: size.width * 0.06),
     color: const Color(0xFF959595),
     backgroundColor: Colors.white,
-    activeColor: const Color(0xFF48D861),
+    activeColor: const Color(0xFFDB3022),
     gap: 4,
     iconSize: size.width * 0.08,
     selectedIndex: currentIndex,
@@ -17,25 +20,23 @@ Widget bottomNavbar(BuildContext context, int currentIndex) {
       currentIndex = index;
       switch (index) {
         case 0:
-          Get.offAllNamed('/home');
+          Get.off(HomePage());
           break;
-        case 1:
-          // Get.toNamed('/favorite');
+          case 1:
+          Get.off(ShoppingPage());
           break;
         case 2:
-          Get.offAllNamed('/bag');
+          Get.offNamed('/bag');
           break;
         case 3:
-          Get.offAllNamed('/profile');
-          break;
-        default:
+          Get.offNamed('/profile');
           break;
       }
     },
     tabs: const [
       GButton(icon: Icons.home_filled, text: "home"),
-      GButton(icon: Icons.search, text: "search"),
-      GButton(icon: Icons.shopping_cart, text: "cart"),
+      GButton(icon: Icons.shopping_cart, text: "shop"),
+      GButton(icon: Icons.shopping_bag, text: "bag"),
       GButton(icon: Icons.person_2, text: "profile"),
     ],
   );

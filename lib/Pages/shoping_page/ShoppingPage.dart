@@ -2,12 +2,16 @@
   import 'package:flutter_ecommerce/component/categories.dart';
   import 'package:flutter_ecommerce/component/myButton.dart';
 
+import '../Navigation.dart';
+
   class ShoppingPage extends StatelessWidget {
     const ShoppingPage({Key? key}) : super(key: key);
 
+  int get currentIndex => 1;
+
     @override
     Widget build(BuildContext context) {
-      return DefaultTabController(
+      return  DefaultTabController(
         length: 2,
         child: Scaffold(
           appBar: AppBar(
@@ -76,8 +80,8 @@
                     )
             ],
           ),
-          
-      )
+          bottomNavigationBar: bottomNavbar(context, currentIndex),
+        )
       );
     }
   }

@@ -22,17 +22,18 @@ class profiles extends StatelessWidget {
           ListTile(
             title: myText(username,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 26,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
-            subtitle: myText("JusNando@gmail.com",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal,
-                    color: ColorValue.grey)),
+
             leading: CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage("img/fut.jpg"),
+              backgroundColor: Colors.red, // Set background color to orange
+              child: Icon(
+                Icons.person,
+                size: 50, // Set the size of the icon
+                color: Colors.white, // Set the color of the icon
+              ),
             ),
           ),
           SizedBox(

@@ -3,8 +3,8 @@ import 'package:flutter_ecommerce/component/myButton.dart';
 import 'package:flutter_ecommerce/model/AllProductResponseModel.dart';
 import 'package:get/get.dart';
 
-class BageController extends GetxController{
-  RxList<PruductResponseModel> responeBag =  <PruductResponseModel>[].obs;
+class BageController extends GetxController {
+  RxList<PruductResponseModel> responeBag = <PruductResponseModel>[].obs;
   RxBool isRefresh = false.obs;
 
   addBag(BuildContext context, PruductResponseModel itemBag) {
@@ -38,7 +38,7 @@ class BageController extends GetxController{
   }
 
   removeFromBag(BuildContext context, int id, String name) {
-    responeBag.value.removeWhere((item) => item.id == id);
+    responeBag.removeWhere((item) => item.id == id);
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -47,6 +47,7 @@ class BageController extends GetxController{
       ),
     );
 
-    isRefresh.value = !isRefresh.value;
+    // Trigger a change by assigning a new list instance
+    responeBag = responeBag.toList().obs;
   }
 }

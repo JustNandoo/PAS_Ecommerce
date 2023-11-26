@@ -48,7 +48,7 @@ class LoginController extends GetxController {
           await prefs.setString("userToken", responseData.token);
           await prefs.setString("username", username);
 
-          Get.offAllNamed(RouteName.home);
+          Get.offAllNamed('/home');
         }
       } else {
         print("status code: ${response.statusCode}");

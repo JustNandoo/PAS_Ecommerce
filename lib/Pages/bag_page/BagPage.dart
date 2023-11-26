@@ -22,7 +22,7 @@ class BagPage extends StatelessWidget {
             height: 190,
           ),
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
