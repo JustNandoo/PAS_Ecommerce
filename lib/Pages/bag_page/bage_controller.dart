@@ -7,7 +7,7 @@ class BageController extends GetxController {
   RxList<PruductResponseModel> responeBag = <PruductResponseModel>[].obs;
   RxBool isRefresh = false.obs;
 
-  addBag(BuildContext context, PruductResponseModel itemBag) {
+  void addBag(BuildContext context, PruductResponseModel itemBag) {
     bool addList = false;
     for (var item in responeBag.value) {
       if (item.id == itemBag.id) {
@@ -37,7 +37,7 @@ class BageController extends GetxController {
     }
   }
 
-  removeFromBag(BuildContext context, int id, String name) {
+  void removeFromBag(BuildContext context, int id, String name) {
     responeBag.removeWhere((item) => item.id == id);
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -49,5 +49,50 @@ class BageController extends GetxController {
 
     // Trigger a change by assigning a new list instance
     responeBag = responeBag.toList().obs;
+  }
+
+  void checkout(BuildContext context, String selectedPayment) {
+    if (responeBag.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Cart is empty. Add items to proceed.'),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    if (selectedPayment.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Please select a payment method.'),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    // Perform payment logic here
+
+    // Show a confirmation dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Transaction Complete'),
+          content: Text('Thank you for your purchase!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                // Clear the cart after successful purchase
+                responeBag.clear();
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

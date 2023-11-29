@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/Pages/bag_page/bage_controller.dart';
 import 'package:flutter_ecommerce/component/bags.dart';
+import 'package:flutter_ecommerce/component/checkout.dart';
 import 'package:flutter_ecommerce/component/empty.dart';
 import 'package:flutter_ecommerce/component/myButton.dart';
 import 'package:flutter_ecommerce/pages/Navigation.dart';
@@ -72,7 +73,17 @@ class BagPage extends StatelessWidget {
     return Scaffold(
       body: Obx(() => controller.responeBag.value.length == 0
           ? EmptyCart()
-          : bagItemList(context)),
+          : Stack(
+              children: [
+                bagItemList(context),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Checkout(),
+                ),
+              ],
+            )),
       bottomNavigationBar: bottomNavbar(context, currentIndex),
     );
   }

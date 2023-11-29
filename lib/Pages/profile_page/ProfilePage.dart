@@ -7,19 +7,60 @@ import 'package:get/get.dart'; // Import GetX package
 
 class ProfilePage extends StatelessWidget {
   final profileController = Get.put(ProfileController());
-  ProfilePage({Key? key});
   final int currentIndex = 3;
+
+  ProfilePage({Key? key}) : super(key: key);
+
+  Future<void> showLogoutConfirmationDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Logout'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Are you sure you want to log out?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Log Out'),
+              onPressed: () async {
+                // Perform logout action here
+                 profileController.logout();
+
+                // Check if the context is still valid before popping
+                if (Navigator.of(context).canPop()) {
+                  Navigator.of(context).pop();
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => Container(
+      body: Obx(
+        () => Container(
           child: Column(
             children: [
               GestureDetector(
                 onTap: () {
-                  // Navigate to the login page using GetX
-                  profileController.logout();
+                  // Show logout confirmation dialog
+                  showLogoutConfirmationDialog(context);
                 },
                 child: Container(
                   alignment: Alignment.topRight,
@@ -46,7 +87,6 @@ class ProfilePage extends StatelessWidget {
               ),
             ],
           ),
-
         ),
       ),
       bottomNavigationBar: bottomNavbar(context, currentIndex),

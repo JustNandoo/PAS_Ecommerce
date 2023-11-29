@@ -22,6 +22,42 @@ class BagItem extends StatelessWidget {
     }
   }
 
+  Future<void> showConfirmationDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button for close dialog!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Removal'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(
+                    'Are you sure you want to remove this item from your bag?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Remove'),
+              onPressed: () {
+                // Perform removal action here
+                controller.removeFromBag(context, item.id, item.title);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -56,7 +92,6 @@ class BagItem extends StatelessWidget {
           SizedBox(width: 10),
           Expanded(
             child: Padding(
-
               padding: EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +153,7 @@ class BagItem extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {
-                          controller.removeFromBag(context, item.id, item.title);
+                          showConfirmationDialog(context);
                         },
                         icon: Icon(
                           CupertinoIcons.trash,
