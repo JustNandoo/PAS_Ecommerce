@@ -19,7 +19,7 @@ import '../Navigation.dart';
             flexibleSpace: Container(
               height: double.infinity,
               alignment: Alignment.center,
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical:30),
               child: Center( // Wrap the Row in a Center wid// get
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
